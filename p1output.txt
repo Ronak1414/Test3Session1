@@ -1,1 +1,92 @@
+status 127
+ gcc -g p1original.c
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x910: file p1original.c, line 33.
+(gdb) r
+Starting program: /home/runner/Test3Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1original.c:33
+33  {
+(gdb) s
+35    input(&num1,&den1,&num2,&den2);
+(gdb) s
+input (num1=0x7fff9a0e4450, 
+    den1=0x7fff9a0e445c, 
+    num2=0x7fff9a0e4454, 
+    den2=0x7fff9a0e4460) at p1original.c:4
+4     printf("Enter the numerator :\n");
+(gdb) n
+Enter the numerator :
+5     scanf("%d",num1);
+(gdb) n
+1
+6     printf("Enter the denominator :\n");
+(gdb) n
+Enter the denominator :
+7     scanf("%d",den1);
+(gdb) n
+2
+8     printf("Enter the numerator :\n");
+(gdb) n
+Enter the numerator :
+9     scanf("%d",num2);
+(gdb) n
+1
+10    printf("Enter the numerator :\n");
+(gdb) n
+Enter the numerator :
+11    scanf("%d",den2);
+(gdb) n
+4
+12  }
+(gdb) n
+main () at p1original.c:36
+36    add(num1,den1,num2,den2,&num3,&den3);
+(gdb) n
+37   output(num1,den1,num2,den2,num3,den3);
+(gdb) s
+output (num1=1, den1=2, num2=1, den2=4, 
+    num3=3, den3=4) at p1original.c:29
+29    printf("the addition of %d/%d + %d/%d is %d/%d",num1,den1,num2,den2,num3,den3);
+(gdb) n
+30  }
+(gdb) n
+main () at p1original.c:38
+38    return 0;
+(gdb) n
+39    }(gdb) n
+__libc_start_main (
+    main=0x5569a9a00908 <main>, argc=1, 
+    argv=0x7fff9a0e4558, 
+    init=<optimized out>, 
+    fini=<optimized out>, 
+    rtld_fini=<optimized out>, 
+    stack_end=0x7fff9a0e4548)
+    at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+the addition of 1/2 + 1/4 is 3/4[Inferior 1 (process 943) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
+(gdb) 
