@@ -1,1 +1,134 @@
+t status 127
+ gcc -g p2original.c
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x909: file p2original.c, line 41.
+(gdb) r
+Starting program: /home/runner/Test3Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p2original.c:41
+41    a=input();
+(gdb) s
+input () at p2original.c:8
+8   {
+(gdb) n
+10    printf("Enter the numerator :\n");
+(gdb) n
+Enter the numerator :
+11    scanf("%f",&a.num);
+(gdb) n
+1
+12    printf("Enter the denominator :\n");
+(gdb) n
+Enter the denominator :
+13    scanf("%f",&a.den);
+(gdb) n
+2
+14    return a;
+(gdb) n
+15  }
+(gdb) n
+main () at p2original.c:42
+42    b=input();
+(gdb) s
+input () at p2original.c:8
+8   {
+(gdb) n
+10    printf("Enter the numerator :\n");
+(gdb) n
+Enter the numerator :
+11    scanf("%f",&a.num);
+(gdb) n
+4
+12    printf("Enter the denominator :\n");
+(gdb) n
+Enter the denominator :
+13    scanf("%f",&a.den);
+(gdb) n
+5
+14    return a;
+(gdb) n
+15  }
+(gdb) n
+main () at p2original.c:43
+43    c=input();
+(gdb) s
+input () at p2original.c:8
+8   {
+(gdb) n
+10    printf("Enter the numerator :\n");
+(gdb) n
+Enter the numerator :
+11    scanf("%f",&a.num);
+(gdb) n
+1
+12    printf("Enter the denominator :\n");
+(gdb) n
+Enter the denominator :
+13    scanf("%f",&a.den);
+(gdb) n
+6
+14    return a;
+(gdb) n
+15  }
+(gdb) n
+main () at p2original.c:44
+44    fac large=largest(a,b,c);
+(gdb) s
+largest (a=..., b=..., c=...) at p2original.c:19
+19    fac1=a.num / a.den;
+(gdb) n
+20    fac2=b.num/b.den;
+(gdb) n
+21    fac3=c.num/c.den;
+(gdb) n
+22    if(fac1>fac2 && fac1>fac3)
+(gdb) n
+24    else if(fac2 > fac3 )
+(gdb) n
+25      return b;
+(gdb) n
+29  }
+(gdb) n
+main () at p2original.c:45
+45    output(a,b,c,large);
+(gdb) s
+output (a=..., b=..., c=..., large=...) at p2original.c:33
+33    printf("the farctions are :\n%1.0f/%1.0f , %1.0f/%1.0f , %1.0f/%1.0f",a.num,a.den,b.num,b.den,c.num,c.den);
+(gdb) n
+the farctions are :
+34    printf("\nthe largest of the 3 is %1.0f/%1.0f",large.num,large.den);
+(gdb) n
+1/2 , 4/5 , 1/6
+36  }
+(gdb) n
+main () at p2original.c:46
+46    return 0;
+(gdb) n
+47  }(gdb) n
+__libc_start_main (main=0x5630ff200901 <main>, argc=1, argv=0x7ffd97c21568, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffd97c21558) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+the largest of the 3 is 4/5[Inferior 1 (process 282) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) n
+The program i
