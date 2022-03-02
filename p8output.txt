@@ -1,1 +1,142 @@
+ gcc -g p8original.c
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0xa2c: file p8original.c, line 68.
+(gdb) r
+Starting program: /home/runner/Test3Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p8original.c:68
+68  {
+(gdb) n
+70    n=size();
+(gdb) s
+size () at p8original.c:9
+9   { int n;
+(gdb) n
+10    printf("enter the size of the array:");
+(gdb) n
+11    scanf("%d",&n);
+(gdb) n
+enter the size of the array:2
+12    return n;
+(gdb) n
+13  }
+(gdb) n
+main () at p8original.c:71
+71    fraction f[n];
+(gdb) n
+72    input_fraction(n,f);
+(gdb) s
+input_fraction (n=2, f=0x7ffd8d91bcb0) at p8original.c:27
+27    for(int i=0;i<n;i++)
+(gdb) n
+29        f[i]=input();
+(gdb) s
+input () at p8original.c:16
+16  {
+(gdb) n
+18    printf("enter the numerator :\n");
+(gdb) n
+enter the numerator :
+19    scanf("%d",&f1.n);
+(gdb) n
+1
+20    printf("enter the denominator :\n");
+(gdb) n
+enter the denominator :
+21    scanf("%d",&f1.d);
+(gdb) n
+2
+22    return f1;
+(gdb) n
+23  }
+(gdb) n
+input_fraction (n=2, f=0x7ffd8d91bcb0) at p8original.c:27
+27    for(int i=0;i<n;i++)
+(gdb) n
+29        f[i]=input();
+(gdb) s
+input () at p8original.c:16
+16  {
+(gdb) 
+18    printf("enter the numerator :\n");
+(gdb) n
+enter the numerator :
+19    scanf("%d",&f1.n);
+(gdb) n
+1
+20    printf("enter the denominator :\n");
+(gdb) n
+enter the denominator :
+21    scanf("%d",&f1.d);
+(gdb) n
+5
+22    return f1;
+(gdb) n
+23  }
+(gdb) n
+input_fraction (n=2, f=0x7ffd8d91bcb0) at p8original.c:27
+27    for(int i=0;i<n;i++)
+(gdb) n
+31  }
+(gdb) n
+main () at p8original.c:73
+73    fraction sum=add_fraction(n,f);
+(gdb) s
+add_fraction (n=2, f=0x7ffd8d91bcb0) at p8original.c:50
+50       f3=add(f[0],f[1]);
+(gdb) n
+51    for(int i=2;i<n;i++)
+(gdb) n
+55    return f3;
+(gdb) n
+56  }
+(gdb) n
+main () at p8original.c:74
+74    output(n,f,sum);
+(gdb) s
+output (n=2, f=0x7ffd8d91bcb0, sum=...) at p8original.c:59
+59  { printf("%d/%d ",f[0].n,f[0].d);
+(gdb) n
+60    for(int i=1;i<n;i++)
+(gdb) n
+62        printf(" + %d/%d ",f[i].n,f[i].d);
+(gdb) n
+60    for(int i=1;i<n;i++)
+(gdb) n
+64    printf(" \n is %d/%d",sum.n,sum.d);
+(gdb) n
+1/2  + 1/5  
+65  }
+(gdb) n
+main () at p8original.c:75
+75    return 0;
+(gdb) n
+76  }(gdb) n
+__libc_start_main (main=0x558ca7a00a1b <main>, argc=1, argv=0x7ffd8d91be18, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffd8d91be08) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+ is 7/10[Inferior 1 (process 5375) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
+(gdb) 
