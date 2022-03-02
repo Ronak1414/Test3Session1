@@ -1,1 +1,131 @@
+ gcc -g p5original.c
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x906: file p5original.c, line 39.
+(gdb) r
+Starting program: /home/runner/Test3Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p5original.c:39
+39  {
+(gdb) s
+41    n=size();
+(gdb) s
+size () at p5original.c:3
+3   {
+(gdb) n
+5     printf("enter the array size:");
+(gdb) n
+6     scanf("%d",&n);
+(gdb) n
+enter the array size:3
+7     return n;
+(gdb) n
+8   }
+(gdb) n
+main () at p5original.c:42
+42    int a[n];
+(gdb) n
+43    input(n,a);
+(gdb) s
+input (n=3, a=0x7ffeab509730) at p5original.c:12
+12    printf("enter the numbers :\n");
+(gdb) n
+enter the numbers :
+13    for(int i=0;i<n;i++)
+(gdb) n
+15        scanf("%d",&a[i]);
+(gdb) n
+1 2 10
+13    for(int i=0;i<n;i++)
+(gdb) n
+15        scanf("%d",&a[i]);
+(gdb) n
+13    for(int i=0;i<n;i++)
+(gdb) n
+15        scanf("%d",&a[i]);
+(gdb) n
+13    for(int i=0;i<n;i++)
+(gdb) n
+17  }
+(gdb) n
+main () at p5original.c:44
+44    large=largest(n,a);
+(gdb) s
+largest (n=3, a=0x7ffeab509730) at p5original.c:21
+21    large=a[0];
+(gdb) n
+22    for(int i=1;i<n;i++)
+(gdb) n
+24        if(a[i]>large)
+(gdb) n
+25          large=a[i];
+(gdb) n
+22    for(int i=1;i<n;i++)
+(gdb) n
+24        if(a[i]>large)
+(gdb) n
+25          large=a[i];
+(gdb) n
+22    for(int i=1;i<n;i++)
+(gdb) n
+27    return large;
+(gdb) n
+28  }
+(gdb) n
+main () at p5original.c:45
+45    output(n,a,large);
+(gdb) s
+output (n=3, a=0x7ffeab509730, large=10) at p5original.c:31
+31  { printf("The numbers are\n");
+(gdb) n
+The numbers are
+32    for(int i=0;i<n;i++)
+(gdb) n
+34      printf(" %d",a[i]);
+(gdb) n
+32    for(int i=0;i<n;i++)
+(gdb) n
+34      printf(" %d",a[i]);
+(gdb) n
+32    for(int i=0;i<n;i++)
+(gdb) n
+34      printf(" %d",a[i]);
+(gdb) n
+32    for(int i=0;i<n;i++)
+(gdb) n
+36    printf("\nThe largest among the above numbers is %d",large);
+(gdb) n
+ 1 2 10
+37  }
+(gdb) n
+main () at p5original.c:46
+46    return 0;
+(gdb) n
+47  }(gdb) n
+__libc_start_main (main=0x55663ca008f5 <main>, argc=1, argv=0x7ffeab509878, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffeab509868) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+The largest among the above numbers is 10[Inferior 1 (process 1977) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
+(gdb) 
