@@ -32,7 +32,7 @@ void output(int num1, int den1, int num2, int den2, int num3, int den3)
 int main()
 {
   int num1,num2,num3,den1,den2,den3;
-  input(&num1,&den1,&num2,&den2);
+ input (&num1,&den1,&num2,&den2);
   add(num1,den1,num2,den2,&num3,&den3);
  output(num1,den1,num2,den2,num3,den3);
   return 0;

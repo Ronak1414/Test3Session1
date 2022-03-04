@@ -1,1 +1,100 @@
 
+ gcc -g p6original.c
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x87e: file p6original.c, line 24.
+(gdb) r
+Starting program: /home/runner/Test3Session1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6original.c:24
+24  {
+(gdb) s
+27    input_string(a);
+(gdb) s
+input_string (a=0x7fffee9f1540 "") at p6original.c:5
+5     printf("Enter a line of text:-\n");
+(gdb) n
+Enter a line of text:-
+6     fgets(a,100,stdin);
+(gdb) n
+1 2 3 
+7   }
+(gdb) n
+main () at p6original.c:28
+28    n=count_words(a);
+(gdb) s
+count_words (a=0x7fffee9f1540 "1 2 3 \n") at p6original.c:10
+10    int i=0;
+(gdb) n
+11    char *temp=strtok(a," ");
+(gdb) n
+12    while(temp!=NULL)
+(gdb) n
+14      i=i+1;
+(gdb) n
+15      temp=strtok(NULL," ");
+(gdb) n
+12    while(temp!=NULL)
+(gdb) n
+14      i=i+1;
+(gdb) n
+15      temp=strtok(NULL," ");
+(gdb) n
+12    while(temp!=NULL)
+(gdb) n
+14      i=i+1;
+(gdb) n
+15      temp=strtok(NULL," ");
+(gdb) n
+12    while(temp!=NULL)
+(gdb) n
+14      i=i+1;
+(gdb) nn
+Undefined command: "nn".  Try "help".
+(gdb) n
+15      temp=strtok(NULL," ");
+(gdb) n
+12    while(temp!=NULL)
+(gdb) n
+17    return i;
+(gdb) n
+18  }
+(gdb) n
+main () at p6original.c:29
+29    output(a,n);
+(gdb) s
+output (a=0x7fffee9f1540 "1", no_words=4) at p6original.c:21
+21    printf("%d",no_words);
+(gdb) n
+22  }
+(gdb) n
+main () at p6original.c:30
+30    return 0;
+(gdb) n
+31  }(gdb) n
+__libc_start_main (main=0x55bffa200876 <main>, argc=1, argv=0x7fffee9f1698, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7fffee9f1688) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
+4[Inferior 1 (process 1016) exited normally]
+(gdb) n
+The program is not being run.
+(gdb) n
+The program is not being run.
