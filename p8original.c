@@ -1,3 +1,4 @@
+//code8
 #include<stdio.h>
 typedef struct fraction
 {

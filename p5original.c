@@ -1,3 +1,4 @@
+//code5
 #include<stdio.h>
 int size()
 {
@@ -17,14 +18,17 @@ void input(int n,int a[n])
 }
 int largest(int n,int a[n])
 {
-  int large;
+  int large,b=0;
   large=a[0];
   for(int i=1;i<n;i++)
     {
       if(a[i]>large)
+      { 
         large=a[i];
+          b=i;//to give index value
+      }
     }
-  return large;
+  return b;
 }
 
 void output(int n,int a[n],int large)

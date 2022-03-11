@@ -1,3 +1,4 @@
+//code2
 #include<stdio.h>
 typedef struct fac
 {
